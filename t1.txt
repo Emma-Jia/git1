@@ -24,11 +24,47 @@ HEAD is now at a92ed38 dit第五次修改操作
 如果忘记版本号，使用：
 git relog
 
-git cat t1.txt
+git cat t1.txt（可以看到当前版本文件里得内容）
 seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
 $ git reset --hard HEAD~2
 HEAD is now at fd11111 git版本库初始化与文件提交操作
 seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
 $ cat t1.txt
 git版本库与文件提交工作
+
+git第七次修改操作
+git只关注文件得修改，不关注删除
+将一个文件commit之后，删除会发生：
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   t1.txt
+        deleted:    t2.txt
+可以看到t2.txt已经被git追踪到已经删除
+这个删除指工作区被删除了，但git的本地库中仍旧有
+（commit后工作区和本地库均有t2.txt）
+所以可以恢复的（误删除情况）
+git checkout -- t2.txt（文件回来了）
+如果直接就不想要了：
+git rm t2.txt(同步删除工作区和本地仓库中的文件)
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git rm t2.txt
+rm 't2.txt'
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git ls-files
+t1.txt
+（记得回退一个操作）
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git log -5 --pretty=oneline
+806013661996856b20ecd1488df5f866d9757c4b (HEAD -> master) tijiao  //这个是t2的commit
+b781eaba6bbdbc5a45c3d65ba0fd57174432cc70 git第六次修改操作[C
+a92ed38ebc1e7552da3b55a44f35e2602c9c1729 dit第五次修改操作
+a13b2db8a82fd285ae3fcefd8defc51bdb80d803 git第四次修改操作
+79c27345dc1462227ab863ff4a4664b0d540026d git第四次修改操作三次
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git reset --hard HEAD^
+HEAD is now at b781eab git第六次修改操作[C
 
