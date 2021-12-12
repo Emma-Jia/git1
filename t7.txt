@@ -1,0 +1,11 @@
+标签管理
+git tag(产看所有标签)
+git tag tagname(新建一个本地标签，默认HEAD)没带描述信息，默认最后一次推文件的描述信息
+git tag -d tagname(删一个本地标签)
+git tag -a tagname -m'...'(添加标签并指定标签描述为。。。)
+git push origin tagname(推送本地标签到远程)
+git push origin --tags(推送全部未推送的本地标签到远程)
+git push origin :refs/tags/tagname(删除一个远程标签)
+
+从release中打开，下载，可以看到，下载下来一个打这个标签时，仓库中的所有文件
+其实就是相当于留存版本，等待发布
