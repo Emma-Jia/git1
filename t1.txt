@@ -3,3 +3,32 @@ git版本库与文件提交工作
 git第三次修改操作
 git第四次修改操作
 git第五次修改操作
+git第六次修改操作
+git init
+git status(显示状态)
+git add t1.txt(加入缓存区)
+git reset HEAD（从缓存区挪出）
+git commit -m'备注'（将缓存区内容提交）
+git log(显示日志)
+git log -5 --pretty=oneline
+简约显示最新五行的log
+
+版本更新：
+git reset --hard HEAD^^(^表示回退一个版本)
+git reset --hard HEAD~1(数字表示回退版本的数量)
+
+git reset --hard 12de4(去未来版本，12de4为版本号，一般输入前5位)
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git reset --hard a92ed
+HEAD is now at a92ed38 dit第五次修改操作
+如果忘记版本号，使用：
+git relog
+
+git cat t1.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git reset --hard HEAD~2
+HEAD is now at fd11111 git版本库初始化与文件提交操作
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ cat t1.txt
+git版本库与文件提交工作
+
