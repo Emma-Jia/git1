@@ -1,0 +1,13 @@
+本地分支操作冲突
+主干和分支同时修改同一文件的同一行
+合并时会出错-然后：进入（master|MERGING）
+使用cat t1.txt操作，会产生主干与分支冲突内容-解决（打开文件，删去不必要内容）
+然后add commit
+修改完成后，输入命令git log --graph --pretty=oneline
+
+多人协同操作冲突
+大家一起提交同一行同一内容
+git checkout -b local_brach origin/remote_branch(拉取远程指定分支并在本地创建分支)在别人分支的基础上改动
+两个人，先推送的可以，后推送的不行
+冲突解决：现pull
+git pull，然后会进入和本地冲突类似的状况
