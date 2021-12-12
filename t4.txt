@@ -1,26 +1,91 @@
-分支操作
+本地分支操作
 不能在master上直接操作，从主干上拉取一个分支，在分支上进行开发，完成后发回主干。
 拉取的分支和主干上一样。
 git branch(查看所有分支，*标记当前分支)
 git checkout branch(切换到指定分支)
 git checkout -b branch(新建一个branch，并切换到该分支)
-git branch-d branch(删除指定分支)
-git merch branch(合并分支，在处于主干位置使用)
+git branch -d branch(删除指定分支，在处于上一级位置使用)
+git merge branch(合并分支，在处于主干位置使用，只能在主干上合并分支，不能将主干合并到分支)
 git branch -m|-M oldbranch newbranch
 (重命名分支，如果newbranch名字已存在，使用M强制改)
 
-seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+//新建分支
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//查看现有分支
 $ git branch
 * master
-seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//新建分支
 $ git checkout -b first
 Switched to a new branch 'first'
-seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)//再查看，可以看到现在实在first分支上
 $ git branch
 * first
   master
-seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)//查看分支上的文件
 $ git ls-files
 t1.txt
 t2.txt
 t3.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)//在分支上加文件
+$ git add t4.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)
+$ git commit -m'本地分支操作'
+[first e9ef275] 本地分支操作
+ 1 file changed, 26 insertions(+)
+ create mode 100644 t4.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)//t4.txt加进来了
+$ git ls-files
+t1.txt
+t2.txt
+t3.txt
+t4.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)//切回主分支
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//发现主分支上没有t4.txt
+$ git ls-files
+t1.txt
+t2.txt
+t3.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//first合并到主分支
+$ git merge first
+Updating 7bb9322..e9ef275
+Fast-forward
+ t4.txt | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+ create mode 100644 t4.txt
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//发现first带着它的改变回来了
+$ git ls-files
+t1.txt
+t2.txt
+t3.txt
+t4.txt
+//给分支改名，删除
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//新建一个分支
+$ git checkout -b branch
+Switched to a new branch 'branch'
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (branch)//给新建的分支改名字
+$ git branch -m branch newbranch
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (newbranch)//查看现有分支
+$ git branch
+  first
+  master
+* newbranch
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (newbranch)//删除它，但报错
+$ git branch -d newbranch
+error: Cannot delete branch 'newbranch' checked out at 'E:/git1'
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (newbranch)//回到主分支
+$ git checkout master
+Switched to branch 'master'
+M       t4.txt
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//再删除刚刚要删的，成功
+$ git branch -d newbranch
+Deleted branch newbranch (was e9ef275).
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//查看现有分支
+$ git branch
+  first
+* master
+
+
