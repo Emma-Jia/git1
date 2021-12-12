@@ -7,5 +7,5 @@ git push origin tagname(推送本地标签到远程)
 git push origin --tags(推送全部未推送的本地标签到远程)
 git push origin :refs/tags/tagname(删除一个远程标签)
 
-从release中打开，下载，可以看到，下载下来一个打这个标签时，仓库中的所有文件
+从github的tags中打开，下载，可以看到，下载下来一个打这个标签时，仓库中的所有文件
 其实就是相当于留存版本，等待发布
