@@ -1,0 +1,26 @@
+分支操作
+不能在master上直接操作，从主干上拉取一个分支，在分支上进行开发，完成后发回主干。
+拉取的分支和主干上一样。
+git branch(查看所有分支，*标记当前分支)
+git checkout branch(切换到指定分支)
+git checkout -b branch(新建一个branch，并切换到该分支)
+git branch-d branch(删除指定分支)
+git merch branch(合并分支，在处于主干位置使用)
+git branch -m|-M oldbranch newbranch
+(重命名分支，如果newbranch名字已存在，使用M强制改)
+
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git branch
+* master
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git checkout -b first
+Switched to a new branch 'first'
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)
+$ git branch
+* first
+  master
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (first)
+$ git ls-files
+t1.txt
+t2.txt
+t3.txt
