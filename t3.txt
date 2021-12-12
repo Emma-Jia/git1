@@ -1,2 +1,7 @@
-测试它
-t3第二次修改
+1.使用本地git客户端生成ssh公钥和私钥
+ssh-keygen -t rsa -C "6109119005@email.ncu.edu.cn"
+Your identification has been saved in /c/Users/seaandsky佳/.ssh/id_rsa
+Your public key has been saved in /c/Users/seaandsky佳/.ssh/id_rsa.pub
+找到id_rsa.pub，记事本打开，复制
+打开github-settings-SSH and GPG keys-新建ssh key-输入公钥（名字随便起）
+2.测试是否拷贝成功ssh -T git@github.com
