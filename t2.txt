@@ -1,0 +1,48 @@
+远程仓库
+github.com
+谷歌插件octure
+谷歌网上应用店https://chrome.google.com/webstore/category/extensions?hl=zh-CN
+搜索octotree添加至谷歌
+
+克隆远程仓库到本地
+git clone url
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git
+$ git clone https://github.com/winterbe/java8-tutorial.git
+Cloning into 'java8-tutorial'...
+remote: Enumerating objects: 980, done.
+remote: Total 980 (delta 0), reused 0 (delta 0), pack-reused 980
+Receiving objects: 100% (980/980), 148.25 KiB | 343.00 KiB/s, done.
+Resolving deltas: 100% (378/378), done.
+
+git config username。。。
+git config --list
+
+当出现（end）时，输入两个ZZ
+
+将本地库推送到远程github上
+1.注册账号
+2.登录
+3.建远程仓库
+4.使用HTTPS方式
+git remote add origin url
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)
+$ git remote add origin https://github.com/Emma-Jia/git1.git
+
+git push -u origin master
+弹窗要求登录
+{
+	解决：输入$ git push origin master后跳出的窗口无登陆密码框，而是提示：connect to Github sign in with your brower的问题
+	https://blog.csdn.net/cake_eat/article/details/109277876
+}
+
+{
+	解决：remote: Support for password authentication was removed on August 13, 2021.
+	https://blog.csdn.net/weixin_41010198/article/details/119698015
+}
+token
+fangwenshujuku
+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
+
+
+
+
