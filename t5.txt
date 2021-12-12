@@ -1,0 +1,50 @@
+分支的push和pull操作-远程仓库
+git branch -a(查看本地和远程所有的分支)
+git push origin branch(推送本地分支到远程)？？？如果远程已经有了这个分支怎么办
+git push origin :remote_branch(删除远程分支，本地分支还保留)尽量不要用
+git checkout -b local_brach origin/remote_branch(拉取远程指定分支并在本地创建分支)在别人分支的基础上改动
+
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//查看现有所有分支
+$ git branch -a
+  first
+* master
+  remotes/origin/main
+  remotes/origin/master
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//推送本地first分支
+$ git push origin first
+Everything up-to-date
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//查看现有所有分支，发现远程多了一个first
+$ git branch -a
+  first
+* master
+  remotes/origin/first
+  remotes/origin/main
+  remotes/origin/master
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//删除远程first分支，但本地未删除
+$ git push origin :first
+To https://github.com/Emma-Jia/git1.git
+ - [deleted]         first
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//远程first被删除，但本地first没有
+$ git branch -a   //这个操作一定一定要慎用，轻易不要用
+  first
+* master
+  remotes/origin/main
+  remotes/origin/master
+//在github上创建second分支
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//读取远程分支最新状态
+$ git fetch
+From https://github.com/Emma-Jia/git1
+ * [new branch]      second     -> origin/second
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (master)//second1是本地的，second是远程的
+$ git checkout -b second1 origin/second
+Switched to a new branch 'second1'
+Branch 'second1' set up to track remote branch 'second' from 'origin'.
+seaandsky佳@DESKTOP-UPLS549 MINGW64 /e/git1 (second1)//查看现有分支
+$ git branch -a
+  first
+  master
+* second1
+  remotes/origin/main
+  remotes/origin/master
+  remotes/origin/second
+
